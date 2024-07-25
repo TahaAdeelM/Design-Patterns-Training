@@ -7,7 +7,8 @@ package net.media.training.live.isp;
  * Time: 10:26:10 AM
  * To change this template use File | Settings | File Templates.
  */
-public interface Door extends TimerClient, SensorClient{
+// Door doesnt need to implement timer and sensor interfaces necessarily 
+public interface Door {
     void lock();
     void unlock();
     void open();
