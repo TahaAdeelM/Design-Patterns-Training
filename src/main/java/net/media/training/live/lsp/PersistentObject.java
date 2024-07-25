@@ -11,7 +11,7 @@ public class PersistentObject<T> {
     private String data;
 
     public PersistentObject(T data) {
-        if (!(data instanceof String))
+        if (!(data instanceof String)) // PersistentObject works only for string class despite being generic type. Hence it is not following lsp principle
             throw new IllegalArgumentException("Element type should be string, but you passed : " + data.toString());
         this.data = (String) data;
     }
