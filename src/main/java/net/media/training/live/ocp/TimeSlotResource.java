@@ -3,21 +3,26 @@ package net.media.training.live.ocp;/**
  */
 
 public class TimeSlotResource extends Resource{
-    private TimeSlotManager timeSlotManager;
-    protected void markTimeSlotFree(TimeSlotManager timeSlotManager) {
-        this.timeSlotManager = timeSlotManager;
-    }
 
     @Override
     public int allocate() {
-        int resourceId = timeSlotManager.findFreeSlot();
-        timeSlotManager.markSlotBusy(resourceId);
-
+        int resourceId = findFreeTimeSlot();
+        markTimeSlotBusy(resourceId);
         return resourceId;
     }
 
     @Override
     public void free(int resourceId) {
-        timeSlotManager.markSlotFree(resourceId);
+        markTimeSlotFree(resourceId);
+    }
+
+    protected void markTimeSlotFree(int resourceId) {
+    }
+
+    protected void markTimeSlotBusy(int resourceId) {
+    }
+
+    protected int findFreeTimeSlot() {
+        return 0;
     }
 }
