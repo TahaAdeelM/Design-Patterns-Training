@@ -5,27 +5,21 @@ package net.media.training.live.ocp;
  */
 
 public class SpaceSlotResource extends Resource{
+    private SpaceSlotManager spaceSlotManager;
+    protected void markSpaceSlotFree(SpaceSlotManager spaceSlotManager) {
+        this.spaceSlotManager = spaceSlotManager;
+    }
 
     @Override
     public int allocate() {
-        int resourceId = findFreeSpaceSlot();
-        markSpaceSlotBusy(resourceId);
+        int resourceId = spaceSlotManager.findFreeSlot();
+        spaceSlotManager.markSlotBusy(resourceId);
+
         return resourceId;
     }
 
     @Override
     public void free(int resourceId) {
-        markSpaceSlotFree(resourceId);
+        spaceSlotManager.markSlotFree(resourceId);
     }
-
-    protected void markSpaceSlotFree(int resourceId) {
-    }
-
-    protected void markSpaceSlotBusy(int resourceId) {
-    }
-
-    protected int findFreeSpaceSlot() {
-        return 0;
-    }
-
 }
