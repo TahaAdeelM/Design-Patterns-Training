@@ -11,8 +11,14 @@ import java.io.IOException;
  */
 public class EncodingModuleClient {
     public static void main(String[] args) throws IOException {
-        EncodingModule encodingModule  = new EncodingModule();
-        encodingModule.encodeWithFiles();
-        encodingModule.encodeBasedOnNetworkAndDatabase();
+        // encodingModule.encodeWithFiles();
+        MyFile myFileInput = new MyFile();
+        MyFile myFileOutput = new MyFile();
+        EncodingModule.encode(myFileInput, myFileOutput);
+
+        // encodingModule.encodeBasedOnNetworkAndDatabase();
+        MyDatabase myDatabase = new MyDatabase();
+        // MyNetwork myNetwork = new MyNetwork(); // Can be implemented to implement the read and write interfaces
+        // EncodingModule.encode(myDatabase, myNetwork);
     }
 }
